@@ -30,6 +30,8 @@ pip install opencv-python pillow scipy numpy
 
 ## Where to put the data
 - Put all three files at the root of this project
+
+```
 <root>
 |---README.md
 |---train_final.py
@@ -43,7 +45,8 @@ pip install opencv-python pillow scipy numpy
 |   |--- ...
 |---checkpoint(where the model weight saved)
     |--- ...
-  
+```
+
 # Training and Testing
 ```bash
 python train_final.py
