@@ -31,7 +31,7 @@ pip install opencv-python pillow scipy numpy
 ## Where to put the data
 - Put all three files at the root of this project
 
-# Start training
+# Training and Testing
 ```bash
 python train_final.py
 ```
