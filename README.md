@@ -30,3 +30,10 @@ pip install opencv-python pillow scipy numpy
 
 ## Where to put the data
 - Put all three files at the root of this project
+
+# Start training
+```bash
+python train_final.py
+```
+- There are multiple parameters that you could change, more details on the meaning of the parameters will be discussed within the lab. If you are unsure, just leave it as default.
+- This script will first train the model and doing testing over the test dataset, and it will provide you all metrics and visualization needed as long as all TODOs are fixed. 
