@@ -124,8 +124,8 @@ class TrafficSignProcessor:
             'balance_data': True,
             'max_samples_per_class': 300,
             'valid_classes': [14, 33, 34, 35, 40],
-            'class_mapping': {14: 0, 33: 1, 34: 2, 35: 3, 40: 4},
-            'img_size': 32,
+            'class_mapping': #TODO Find the class mapping,
+            'img_size': #TODO Find the image size,
             'mean': [0.485, 0.456, 0.406],  # ImageNet mean
             'std': [0.229, 0.224, 0.225]    # ImageNet std
         }
@@ -299,13 +299,17 @@ class TrafficSignProcessor:
         # Define data transformations
         if augment_train:
             # Apply data augmentation to training data
+            # TODO make some data augmentation
             train_transform = transforms.Compose([
                 # Basic transformations
                 transforms.Resize((img_size, img_size)),
                 # Data augmentation
-                transforms.RandomRotation(15),
-                transforms.RandomAffine(degrees=0, translate=(0.1, 0.1)),
-                transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2),
+
+
+                # Data Agumentation goes here
+
+
+                
                 # Convert to tensor and normalize
                 transforms.ToTensor(),
                 transforms.Normalize(mean, std)

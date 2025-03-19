@@ -479,9 +479,7 @@ def visualize_predictions(model, test_loader, class_names, device, num_samples=1
     fig, axes = plt.subplots(rows, cols, figsize=(cols*3, rows*3))
     
     # Get predictions
-    with torch.no_grad():
-        outputs = model(inputs[:num_samples].to(device))
-        _, preds = outputs.max(1)
+    # TODO get predcitions
     
     # Display images and predictions
     for i in range(num_samples):
@@ -576,13 +574,12 @@ def plot_confusion_matrix(model, test_loader, class_names, device, criterion):
     print(f"Test Results: Loss: {avg_loss:.4f} | Acc: {acc:.2f}% ({correct}/{total})")
     
     # Calculate confusion matrix
-    cm = confusion_matrix(all_targets, all_preds)
+    # TODO create confusion matrix
     
     # Print classification report
     class_names_list = [class_names[i] for i in range(len(class_names))]
     print("\nClassification Report:")
-    print(classification_report(all_targets, all_preds, target_names=class_names_list))
-    
+    # TODO Implement classification report
     # Plot confusion matrix
     plt.figure(figsize=(10, 8))
     sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', 

@@ -70,20 +70,7 @@ def train(model, train_loader, optimizer, criterion, epoch, epochs):
         optimizer.step()
         
         # Statistics
-        train_loss += loss.item()
-        _, predicted = outputs.max(1)
-        total += targets.size(0)
-        correct += predicted.eq(targets).sum().item()
-        
-        # Update progress bar
-        pbar.set_postfix({
-            'loss': train_loss/(batch_idx+1), 
-            'acc': 100.*correct/total
-        })
-    
-    # Calculate average loss and accuracy for the epoch
-    avg_loss = train_loss / len(train_loader)
-    acc = 100. * correct / total
+        # TODO calculate the loss and acc
     
     return avg_loss, acc
 
@@ -122,20 +109,7 @@ def validate(model, val_loader, criterion):
             loss = criterion(outputs, targets)
             
             # Statistics
-            val_loss += loss.item()
-            _, predicted = outputs.max(1)
-            total += targets.size(0)
-            correct += predicted.eq(targets).sum().item()
-            
-            # Update progress bar
-            pbar.set_postfix({
-                'loss': val_loss/(batch_idx+1), 
-                'acc': 100.*correct/total
-            })
-    
-    # Calculate average loss and accuracy
-    avg_loss = val_loss / len(val_loader)
-    acc = 100. * correct / total
+            # TODO calculate the loss and acc
     
     return avg_loss, acc
 
@@ -289,18 +263,10 @@ def main():
                 print(f"Resumed from checkpoint Epoch: {start_epoch}, Accuracy: {best_acc:.2f}%")
     
     # Loss function
-    criterion = nn.CrossEntropyLoss()
+    # TODO Define loss function
     
     # Set optimizer
-    if args.optimizer.lower() == 'sgd':
-        optimizer = optim.SGD(model.parameters(), lr=args.lr, momentum=args.momentum, weight_decay=args.weight_decay)
-    elif args.optimizer.lower() == 'adam':
-        optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
-    elif args.optimizer.lower() == 'rmsprop':
-        optimizer = optim.RMSprop(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
-    else:
-        print(f"Unsupported optimizer: {args.optimizer}, using default RMSprop")
-        optimizer = optim.RMSprop(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+    # TODO set the optimizer
     
     # If resuming from checkpoint, also restore optimizer state
     if checkpoint is not None and 'optimizer' in checkpoint:
